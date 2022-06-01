@@ -10,10 +10,10 @@
 <body>
 <form name="form_imc" id="form_imc" method="POST" enctype="multipart/form-data" action="bd.php" >
 <div class="form-group">
-		<label for="altura">Nota 1</label>
+		<label for="altura">Nome</label>
 		<input type="number" step="0.01" min="1" class="form-control" id="Nome" name="Nome">
 <div class="form-group">
-		<label for="altura">Nota 1</label>
+		<label for="altura">Disiciplina</label>
 		<input type="number" step="0.01" min="1" class="form-control" id="Disciplina" name="Disciplina">
 	  <div class="form-group">
 		<label for="altura">Nota 1</label>
@@ -27,10 +27,11 @@
 	</form>
 
     <?php
-$Nome =  $_POST['Nome']
-$Disciplina	= $_POST['Disciplina']
+$Nome =  $_POST['Nome'];
+$Disciplina	= $_POST['Disciplina'];
 $num1 = $_POST['Nota 1'];
 $num2 = $_POST['Nota 2'];
+
 
 ?>
 
