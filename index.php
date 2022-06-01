@@ -22,7 +22,7 @@
 
     <?php
 $num1 = $_POST['Nota 1'];
-$num2 = $_POST['Nota 3'];
+$num2 = $_POST['Nota 2'];
 
 ?>
 
