@@ -11,10 +11,10 @@
 <form name="form_imc" id="form_imc" method="POST" enctype="multipart/form-data" action="bd.php" >
 <div class="form-group">
 		<label for="altura">Nome</label>
-		<input type="number" step="0.01" min="1" class="form-control" id="Nome" name="Nome">
+		<input type="text" step="0.01" min="1" class="form-control" id="Nome" name="Nome">
 <div class="form-group">
 		<label for="altura">Disiciplina</label>
-		<input type="number" step="0.01" min="1" class="form-control" id="Disciplina" name="Disciplina">
+		<input type="text" step="0.01" min="1" class="form-control" id="Disciplina" name="Disciplina">
 	  <div class="form-group">
 		<label for="altura">Nota 1</label>
 		<input type="number" step="0.01" min="1" class="form-control" id="Nota 1" name="Nota 1">
