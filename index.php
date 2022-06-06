@@ -1,21 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Atv 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Receba-Nota</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+
 <body>
-	
-<?php
-$Nome =  $_POST['Nome'];
-$Disciplina	= $_POST['Disciplina'];
-$num1 = $_POST['Nota 1'];
-$num2 = $_POST['Nota 2'];
+    <div class="container">
+
+        <?php
+        echo "<table class='table'>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th scope='col'>ID</th>";
+        echo "<th scope='col'>NOME</th>";
+        echo "<th scope='col'>EMAIL</th>";
+        echo "</tr>";
+        echo "</thead>";
 
 
-?>
+        class TableRows extends RecursiveIteratorIterator
+        {
+            function __construct($it)
+            {
+                parent::__construct($it, self::LEAVES_ONLY);
+            }
 
+            function current()
+            {
+                return "<td>" . parent::current() . "</td>";
+            }
+
+            function beginChildren()
+            {
+                echo "<tr>";
+            }
+
+            function endChildren()
+            {
+                echo "</tr>" . "\n";
+            }
+        }
+
+        include "connection.php";
+
+        $conn = connection();
+
+        try {
+            //$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * from customer");
+            $stmt->execute();
+
+            // set the resulting array to associative
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
+                echo $v;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+        echo "</table>";
+        ?>
+    <div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
+
+</html>
