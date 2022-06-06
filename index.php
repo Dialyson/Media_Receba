@@ -45,7 +45,7 @@
             }
         }
 
-        include "connection.php";
+        include "bd.php";
 
         $conn = connection();
 
