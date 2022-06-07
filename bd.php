@@ -9,8 +9,8 @@ try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "INSERT INTO Informacoes (nome, disciplina, nota_1,nota_2)
-  VALUES ('John', 'Doe', 'john@example.com')";
+  $sql = "INSERT INTO clientes(nome, disciplina, nota_1,nota_2)
+  VALUES ('John', 'Web', '4,0','10,0')";
   // use exec() because no results are returned
   return $conn;
 
