@@ -1,4 +1,5 @@
 <?php
+function connection(){
 $servername = "ebh2y8tqym512wqs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 $username = "	htffziruel8pxcf0";
 $password = "lv38mkk56njlgsw1";
@@ -17,5 +18,6 @@ try {
   echo $sql . "<br>" . $e->getMessage();
 }
 
+}
 $conn = null;
 ?>
