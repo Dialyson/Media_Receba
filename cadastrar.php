@@ -12,7 +12,7 @@ tentar {
     $nota_1 = (isset($_POST["nota_1"]) && $_POST["nota_1"] !=null) ? $_POST["nota_1"] :"";
     $nota_2 = (isset($_POST["nota_2"]) && $_POST["nota_2"] !=null) ? $_POST["nota_2"] :"";
     
-    $stmt = $conn->prepare("INSERIR EM shsa1lefvhriyzml.notas (nome,disciplina,nota1,nota2) 
+    $stmt = $conn->prepare("INSERIR EM shsa1lefvhriyzml.notas (nome,disciplina,nota_1,nota_2) 
  VALORES (:nome, :disciplina, :nota1, :nota2)");
     $stmt ->bindParam(':nome',$nome);
     $stmt ->bindParam(':disciplina',$disciplina);
