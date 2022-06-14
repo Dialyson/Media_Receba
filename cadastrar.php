@@ -1,7 +1,7 @@
 
 <?php
 incluir "conexao.php";
-$conn = conexao(); 
+$conn = connection(); 
 
 
 tentar {
