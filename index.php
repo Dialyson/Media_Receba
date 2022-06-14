@@ -11,7 +11,7 @@
     <h2>Cadastre aqui sua nota</h2>
    
     <div class="container">
-        <form name="notas" id="notas" method="POST" enctype="multipart/form-data" action="cadastro.php">
+        <form name="notas" id="notas" method="POST" enctype="multipart/form-data" action="cadastrar.php">
             <div class="form-group">
                 <label for="exampleInputEmail1">Aluno</label>
                 <input type="text" class="form-control" name="nome" id="nome" aria-describedby="nomeHelp" placeholder="Nome Completo">
