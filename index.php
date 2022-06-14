@@ -9,20 +9,20 @@
 <body>
   <h1 style="text-align: center; padding-top: 65px; padding-bottom: 50px;">Receba Notas</h1>
   <div class="container">
-    <form name="customer" id="customer" method="POST" enctype="multipart/form-data" action="cadastrar.php">
+    <form name="notas" id="notas" method="POST" enctype="multipart/form-data" action="cadastrar.php">
       <div class="form-group">
         <label for="exampleInputPassword1">Aluno</label>
         <input type="text" class="form-control" id="nome" name="nome">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Disciplina</label>
-        <input type="text" class="form-control" id="email" name="email">
+        <input type="text" class="form-control" id="disciplina" name="disciplina">
         <label for="exampleInputPassword1">Nota 1</label>
-        <input type="text" class="form-control" id="nota_1" name="nota_1">
+        <input type="number" class="form-control" id="nota_1" name="nota_1">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Nota 2</label>
-        <input type="email" class="form-control" id="nota_2" name="nota_2">
+        <input type="number" class="form-control" id="nota_2" name="nota_2">
       </div>
       <br>
       <button type="submit" class="btn btn-primary">Inserir</button>
