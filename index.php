@@ -9,13 +9,13 @@
 <body>
   <h1 style="text-align: center; padding-top: 65px; padding-bottom: 50px;">Receba Notas</h1>
   <div class="container">
-    <form name="customer" id="customer" method="POST" enctype="multipart/form-data" action="add-customer.php">
+    <form name="customer" id="customer" method="POST" enctype="multipart/form-data" action="cadastrar.php">
       <div class="form-group">
-        <label for="exampleInputPassword1">Nome Completo</label>
+        <label for="exampleInputPassword1">Aluno</label>
         <input type="text" class="form-control" id="nome" name="nome">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">E-mail</label>
+        <label for="exampleInputPassword1">Disciplina</label>
         <input type="email" class="form-control" id="email" name="email">
         <label for="exampleInputPassword1">Nota 1</label>
         <input type="text" class="form-control" id="nota_1" name="nota_1">
