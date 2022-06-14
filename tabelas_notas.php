@@ -1,74 +1,69 @@
-<!doctype html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Receba-Nota</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
-
-<body>
+<! DOCTYPE html>
+<html lang="en">
+<cabeça>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <título>Cadastro de Notas</título>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anônimo">
+</cabeça>
+<corpo>
+    <h1>Notas cadastradas! </h1>
     <div class="container">
-
         <?php
-        echo "<table class='table'>";
-        echo "<thead>";
-        echo "<tr>";
-        echo "<th scope='col'>ID</th>";
-        echo "<th scope='col'>NOME</th>";
-        echo "<th scope='col'>EMAIL</th>";
-        echo "</tr>";
-        echo "</thead>";
+        ecoar "<cável class='table'>";
+        eco "<thead>";
+        eco "<tr>";
+        eco "<th scope='col'>ID</th>";
+        eco "<th scope='col'>NOME</th>";
+        eco "<th scope='col'>Disciplina</th>";
+        eco "<th scope='col'>Nota 1</th>";
+        eco "<th scope='col'>Nota 2</th>";
+        eco "</tr>";
+        eco "</thead>";
+        
 
-
-        class TableRows extends RecursiveIteratorIterator
-        {
-            function __construct($it)
-            {
-                parent::__construct($it, self::LEAVES_ONLY);
+        classe TableRows estende RecursiveIteratorIteratorIterator {
+            
+            função __construct ($it){
+                pai ::__construct($it, self::LEAVES_ONLY);
+            }
+            função atual(){
+                retornar "<td>". pai :: atual() . "</td>";
             }
 
-            function current()
-            {
-                return "<td>" . parent::current() . "</td>";
+            função começar Crianças(){
+                eco "<tr>";
             }
 
-            function beginChildren()
-            {
-                echo "<tr>";
+            endChildren função (){
+                eco "</tr>". "\n";
             }
 
-            function endChildren()
-            {
-                echo "</tr>" . "\n";
-            }
         }
 
-        include "bd.php";
+        incluir "conexão.php";
+        $conn = conexão();
 
-        $conn = connection();
-
-        try {
-            //$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        tentar {
+            
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("SELECT * from clientes");
+            $stmt = $conn->prepare("SELECT * from shsa1lefvhriyzml.notas");
             $stmt->execute();
 
-            // set the resulting array to associative
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
-                echo $v;
+            
+            $stmt->setFetchMode (PDO::FETCH_ASSOC);
+            foreach (novo TableRows(novo RecursiveArrayIterator($stmt->fetchAll())) como $k => $v) {
+                eco $v;
             }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+        } captura (PDOException $e) {
+            eco "Deu erro" . $e->getMessage();
         }
-        $conn = null;
-        echo "</table>";
+        $conn = nulo;
+        eco "</tabela>";
+
         ?>
-    <div>
+    </Div>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-
+</corpo>
 </html>
