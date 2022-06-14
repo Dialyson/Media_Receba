@@ -1,43 +1,40 @@
-
 <?php
-incluir "conexao.php";
+include "connection.php";
 $conn = connection(); 
 
 
-tentar {
-   $conn->setAtribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+   // $conn->setAtribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $nome = (isset($_POST["nome"]) && $_POST["nome"] !=null) ? $_POST['nome'] :"";
     $disciplina = (isset($_POST["disciplina"]) && $_POST["disciplina"] !=null) ? $_POST["disciplina"] :"";
-    $nota_1 = (isset($_POST["nota_1"]) && $_POST["nota_1"] !=null) ? $_POST["nota_1"] :"";
-    $nota_2 = (isset($_POST["nota_2"]) && $_POST["nota_2"] !=null) ? $_POST["nota_2"] :"";
+    $nota1 = (isset($_POST["nota1"]) && $_POST["nota1"] !=null) ? $_POST["nota1"] :"";
+    $nota2 = (isset($_POST["nota2"]) && $_POST["nota2"] !=null) ? $_POST["nota2"] :"";
     
-    $stmt = $conn->prepare("INSERIR EM shsa1lefvhriyzml.notas (nome,disciplina,nota_1,nota_2) 
- VALORES (:nome, :disciplina, :nota1, :nota2)");
+    $stmt = $conn->prepare("INSERT INTO ratuff2rowij3xi9.notas (nome,disciplina,nota1,nota2) 
+    VALUES (:nome, :disciplina, :nota1, :nota2)");
     $stmt ->bindParam(':nome',$nome);
     $stmt ->bindParam(':disciplina',$disciplina);
-    $stmt ->bindParam(':nota_1',$nota_1);
-    $stmt ->bindParam(':nota_2',$nota_2);
-    eco $nome;
-    eco $nota_1;
-se ($nome != "" e $disciplina != "" ) {
-        se ($nota_1!="" e $nota_2 !=""){
-        se ($stmt->executo()) {
-            eco "Cadastro realizado com sucesso!";
-        } mais {
-            eco "Erro ao tentar efetiva cadastro";
+    $stmt ->bindParam(':nota1',$nota1);
+    $stmt ->bindParam(':nota2',$nota2);
+    echo $nome;
+    echo $nota1;
+if ($nome != "" and $disciplina != "" ) {
+        if ($nota1!="" and $nota2 !=""){
+        if ($stmt->execute()) {
+            echo"Cadastro realizado com sucesso!";
+        } else {
+            echo "Erro ao tentar efetivar cadastro";
         } 
 }
-}mais {
-    eco "nome ou disciplina errados!";
+}else {
+    echo "nome ou disciplina errados!";
 }
     
     
-} captura (PDOException $e) {
-    eco "Erro" . $e->getMessage();
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
-$conn = nulo;
-cabeçalho ("Localização: tabela_notas.php");
+$conn = null;
+header("Location: tabela_notas.php");
 ?>
-
-
